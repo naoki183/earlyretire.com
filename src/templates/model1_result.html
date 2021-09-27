@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            model1_result
+        </title>
+    
+    </head>
+    <body>
+        <a href="http://127.0.0.1:5000/"><font size="6" color="blue">アーリーリタイア.com</font></a><br>
+        <span></span><br>
+        &nbsp;今の年齢:{{age1}}歳<br>
+        &nbsp;死ぬ年齢:{{age3}}歳<br>
+        &nbsp;リタイア後の年収:{{wage}}万円<br>
+        &nbsp;リタイア後の生活費{{spending}}万円/年<br>
+        &nbsp;死ぬときに残したい金額:{{endmoney}}万円<br>
+        &nbsp;投資の年率:{{rate}}%<br>
+        <span></span><br>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+        <canvas id="graph"></canvas>
+        <script>
+            var canvas = document.getElementById("graph");
+            age = {{age}};
+            money = {{money}};
+            var data = {
+                labels: age,
+                datasets: [{
+                    label: '必要貯金額(万円)',
+                    data: money,
+                    borderColor: 'rgba(255, 100, 100, 1)'
+                }]
+            };
+
+            var options = {
+                scales:{
+                    xAxes:[{
+                        scaleLabel:{
+                            display: true,
+                            labelString: '年齢(歳)'
+                        }
+                    }],
+                    yAxes:[{
+                        scaleLabel:{
+                            display: true,
+                            labelString: '金額(万円)'
+                        }
+                    }]
+                },
+                title: {
+                    display:true,
+                    text:'必要な貯金額(万円)'
+                }
+            };
+            var chart = new Chart(canvas, {
+                type: 'line',
+                data: data,
+                options: options
+            });
+        </script>
+
+        
+    </body>
+</html>

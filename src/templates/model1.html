@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+        <title>アーリーリタイア.com</title>
+        <script>
+            if("{{sentence}}")
+            {
+                alert("{{sentence}}")
+            }
+            function function1()
+            {
+                let age1 = document.getElementById("age1").value;
+                let age3 = document.getElementById("age3").value;
+                let wage = document.getElementById("wage").value;
+                let spending = document.getElementById("spending").value;
+                let endmoney = document.getElementById("endmoney").value;
+                let rate = document.getElementById("rate").value;
+
+                if(age1 && age3 && wage && spending && endmoney && rate)
+                {
+                    return 0;
+
+                }
+                else
+                {
+                    alert("全ての値を入力してください");
+                    return 1;
+                }
+                
+            }
+        </script>
+    
+    </head>
+    <body>
+        
+        <a href="http://127.0.0.1:5000/"><font size="6" color="blue">アーリーリタイア.com</font></a><br>
+        <span></span><br>
+        <form action="/model1" method="post">
+            &nbsp;今の年齢:<br>
+            &nbsp;<input name="age_now" type="number" placeholder="15以上50以下の整数を入力してください" autocomplete="off" id="age1" min="15" max="50" required>歳<br>
+            <span></span><br>
+            &nbsp;死ぬ年齢:<br>
+            &nbsp;<input name="age_end" type="number" placeholder="30以上120以下の整数を入力してください" autocomplete="off" id="age3" min="30" max="120" required>歳<br>
+            <span></span><br>
+            &nbsp;リタイア後の年収(65歳までの一定収入．生活保護などは含めて，年金は含めないでください):<br>
+            &nbsp;<input name="wage" type="number" placeholder="0以上の整数を入力してください" autocomplete="off" id="wage" min="0" required>万円<br>
+            <span></span><br>
+            &nbsp;リタイア後の生活費(1年分):<br>
+            &nbsp;<input name="spending" type="number" placeholoder="正の整数を入力してください" autocomplete="off" id="spending" min="1" max="10000" required>万円<br>
+            <span></span><br>
+            &nbsp;死ぬときに残したい金額:<br>
+            &nbsp;<input name="endmoney" type="number" placeholder="0以上の整数を入力してください" autocomplete="off" id="endmoney" min="0" max="100000" required>万円<br>
+            <span></span><br>
+            &nbsp;投資の年率(しない場合は0を入力):<br>
+            &nbsp;<input name="rate" type="number" placeholder="0以上の整数を入力してください" autocomplete="off" id="rate" min="0" required>%<br>
+            <span></span><br>
+            &nbsp;<button type="submit" onclick="function1()">計算</button><br>
+        </form>
+        
+        
+    </body>
+</html>
